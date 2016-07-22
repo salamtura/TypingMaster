@@ -1,0 +1,93 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Typing Master Web</title>
+        <link rel="stylesheet" type="text/css" title="My style" media="screen" href="css/style.css" />
+        <link rel="stylesheet" type="text/css" title="My objects" media="screen" href="css/objects.css" />
+        <script type="text/javascript" src="js/jquery-1.7.1.js"></script>
+        <script type="text/javascript" src="js/TypingMaster.js"></script>
+        <script type="text/javascript" src="js/jquery.simplemodal.js"></script>
+    </head>
+    <body>
+    <center>
+        <div id="content">
+            <div id="game-stage">
+                <div id="lose_objects">
+                    <ul>
+                    </ul>
+                </div>
+                <div id="jona"></div>
+                <div id="car"><span id="phrase"></span></div>
+                <div id="police_checkpoint"></div>
+            </div>
+            <div id="menu">
+                <div id="left_col">
+                    <p>
+                        <label>Name</label>
+                        <input type="text" name="name" value="Your Name"/>
+                    </p>
+                    <p>
+                        <label>Question</label>
+                        <select id="words" name="words">
+                            <option value="animal.txt">Animals</option>
+                            <option value="Fruit.txt">Fruits</option>
+                        </select>
+                    </p>
+                    <p>
+                        <label>Difficulty</label>
+                        <select name="difficulty">
+                            <option value="1">Level 1</option>
+                            <option value="2">Level 2</option>
+                            <option value="3">Level 3</option>
+                        </select>
+                    </p>                    
+                </div>
+                <div id="middle_col">
+                    <p>
+                        <input type="text" id="user_input" name="user_input" value=""/>
+                    </p>
+                    <div>
+                        <input type="button" id="start" name="start" value="Start" class="button" />
+                        <input type="button" id="end" name="end" value="End Game" class="button"/>
+                        <input type="button" id="pause" name="pause" value="Pause" class="button"/>
+                    </div>                    
+                </div>
+                <div id="right_col">
+                    <p>
+                        <label>Level</label><span id="level">1</span>
+                    </p>
+                    <p>
+                        <label>Score</label><span id="score">0</span>
+                    </p>                
+                </div>
+            </div>
+        </div>
+    </center>
+    <div id="fsjobs">
+        <div id="fsjobs_header"></div>
+        <div id="fsjobs_body">
+            <p style="text-align: center;">Your score is:<br/>
+                <span class="finalscore">500</span>            
+            </p>
+            <p>It's your bragging right, share with your pals</p>            
+                <!-- AddThis Button BEGIN -->
+                <div class="addthis_toolbox addthis_default_style " Style="margin:0px 15px;">
+                <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+                <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>                
+                <a href="https://twitter.com/share" class="twitter-share-button" data-text="I played  a Boko Haram typing game" data-via="Salamtura">Tweet</a>
+                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                <br/>
+                <a class="addthis_counter addthis_pill_style"></a>
+                </div>
+                <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=salamtura"></script>
+                <!-- AddThis Button END -->
+                <br/>
+        </div>
+    </div>
+    </body>
+</html>

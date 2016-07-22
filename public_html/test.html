@@ -1,0 +1,254 @@
+
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Angel & Dreams Game : Motyar dot Com</title>
+    <meta name="author" content="Motyar Dharmveer">
+    <meta name="keywords" content="Jquery, Animation, Angel & Dreams, Dreams, Jquery Game, Game">
+    <meta name="description" content="Angel & Dreams Game with Jquery" >
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<style>
+@font-face {
+  font-family: 'Crysta';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Crysta'), url('Crysta.ttf') format('truetype');
+}
+body{
+ background:#ffffff;
+ overflow:hidden;
+ font-family: Georgia, sans-serif;
+	font-size: 100%;
+
+}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0}
+#nav li{list-style:none}
+#nav{height:16px;margin-bottom:0px;background-color:#fff}#nav
+ul{float:right}
+#nav
+li{float:left;width:60px;text-align:center;border-left:1px solid #fff}
+#nav
+li a{display:block;color:#f0f;font-size:85%;text-decoration:none;text-transform:uppercase;font-weight:normal;line-height:16px}
+#nav li.selected a{background-color:#000}
+#nav li a:hover{background-color:#f0f;color:#fff;}
+
+
+
+a{
+text-decoration:none;
+color:red;
+}
+a div{
+display:none;
+position: absolute;
+margin-top:105px;
+margin-left:133px;
+}
+a:hover div{
+display:block;
+}
+.tip {
+ padding:10px;
+position:absolute;
+top:0%;
+left:0%;
+width:300px;
+height:300px;
+margin-left:0px;
+margin-top:0px;
+text-align:center;
+
+  opacity:0.8;
+  filter:alpha(opacity=80);
+}
+
+.tip .body {
+  color: #ffffff;
+  background-color: #6323B1;
+  padding:5px 5px 5px 5px;
+   border-radius:5px; 
+  -moz-border-radius:5px;
+  -webkit-border-radius:5px;
+}
+.score { 
+background-color:#ffffff;
+color:#f0f;
+font-family:'Crysta';
+font-size: 300%;
+}
+
+
+</style>
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"  ></script>
+<script>
+var tm,angel;
+ $(document).ready(
+ function () {
+    //start the game
+	$('#start').click(function() {
+	
+ init();
+}
+)
+
+$('#stop').click(function() {
+ flush();
+}
+)
+
+}
+);
+
+function init(){
+    // create angel
+    angel = $('<img>').attr({
+        'src': 'angel.gif'
+    }).css({
+        'position': 'absolute',
+        'z-index': 75,
+        top: -10,
+        left: -10
+    });
+
+	//append it to body
+    $(document.body).append(angel);
+
+	//start dreaming
+    do_dream();
+
+}
+
+function do_dream() {
+	//take a random color
+    var color = 'rgb(' + Math.floor(Math.random() * 255) + ',' +
+						Math.floor(Math.random() * 255) + ',' + 
+						Math.floor(Math.random() * 255) + ')';
+    
+
+	//generate random position
+    var x = Math.floor(Math.random() * $(window).width());
+    var y = Math.floor(Math.random() * $(window).height());
+    
+	//decorating the dream
+    dream = $('<span>').css({
+        'position': 'absolute',
+        height: '100px',
+        width: '100px',
+        'background-color': color,
+        'border-radius': '100px',
+        '-moz-border-radius': '100px',
+        '-webkit-border-radius': '100px',
+        top: y - 50, //offsets
+        left: x - 50 //offsets
+    });
+    
+	//append it to body
+    $(document.body).append(dream);
+    
+	//bind the explode on click event
+    dream.bind('click', function (e) {
+	    angel.stop();
+	    //you won
+        won(); 
+		//hide the dream
+        explode(e.pageX, e.pageY, $(e.target));
+    });
+    
+	//call angel to chase the dream
+    chase(x, y, dream);
+    
+	//dreams are endless
+     tm = window.setTimeout('do_dream()', 1500);
+
+}
+
+
+function chase(x, y, dream) {
+    //angel gets the dream 
+    angel.animate({
+        top: y,
+        left: x 
+    }, 1000, function () {
+	    //explode the dream
+	    explode(x, y, dream);
+		//you lose
+        lose();
+    });
+}
+
+
+function explode(x, y, dream) {
+    dream.animate({
+        height: '400px',
+        width: '400px',
+        'border-radius': '800px',
+        '-moz-border-radius': '800px',
+        '-webkit-border-radius': '800px',
+        opacity: 0,
+        top: y - 200,
+        left: x - 200
+
+    }, 100, function () {
+        dream.remove();
+    });
+
+}
+
+function lose() {
+    $("#angel").html(parseInt($("#angel").html()) + 1);
+}
+
+function won() {
+    angel.stop();
+    $("#you").html(parseInt($("#you").html()) + 1);
+} 
+function flush(){
+
+angel.remove();
+clearTimeout(tm) ;
+ angel.stop();
+ dream.hide();
+
+}
+</script>
+</head>
+<body>
+<div id='nav'>
+					<ul>
+						<!-- <li>
+							<a href='http://lifeclrz.blogspot.com'>Life</a>
+						</li> -->
+						<li>
+							<a href='http://motyar.blogspot.com/2010/04/angel-dreams-jquery-game.html'>About</a>
+						</li>
+					
+					</ul>
+				</div>
+
+<br />
+<a href='#' id="how">HOW TO PLAY??
+							<div class="tip">
+                             <p class="body"> Use mouse-click to get the dream before the angel does... <br /> tip - Best view in fullscreen mode(Press F11)
+							 <br />
+							 Scores are You Vs angel!!
+							 <br />
+							 Try beat the time! Good Luck.<br /><br />
+							 <span href="#" id="start" style="color:#FDFF00;">Play</span>&nbsp;&nbsp;&nbsp;&nbsp;<span href="#" id="stop" style="color:#FDFF00;">Stop</span>
+                             </p>
+                                
+                            </div> 
+							
+							 <br />
+<span class="score">
+<span id="you" >0</span> /
+<span id="angel">0</span><br />
+</span></a><br />
+
+
+</body>
+
+						   
+							
+</html>

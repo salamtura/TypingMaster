@@ -1,0 +1,240 @@
+/* 
+    Document   : style
+    Created on : Mar 2, 2012, 10:40:46 PM
+    Author     : Salamtura
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+
+
+root { 
+    display:block;
+}
+
+body{
+    font-family: arial;
+    
+}
+
+#content{
+    width: 1000px;
+    height: 700px;
+    background-color: gray;
+    background-image: url(../images/game_stage_sized.jpg);
+}
+
+#game-stage{
+    width: 1000px;
+    height: 580px;
+    position:relative;
+    overflow: hidden;
+    text-align: left;
+}
+
+#menu{
+    width: 1000px;
+    height: 120px;
+    padding: 0px;
+}
+
+#menu #left_col{
+    display: inline-block;
+    width: 300px;
+    vertical-align: top;
+}
+
+#menu #left_col p, #menu #right_col p{
+    font:bold large arial;
+    margin: 4px;
+    padding: 3px;
+}
+
+#menu #left_col p label{
+    width: 100px;
+    color: saddlebrown;
+}
+
+#menu #left_col p input{
+    border-radius: 6px;
+    border: 3px solid goldenrod;
+    font: normal medium arial;
+}
+
+#menu #right_col{
+    display: inline-block;
+    width: 180px;
+    vertical-align: top;
+}
+
+#menu #right_col p span{
+    margin: 0px 20px 0px 20px;
+}
+
+#menu #middle_col{
+    display: inline-block;
+    width: 500px;
+    vertical-align: top;
+}
+
+#menu #middle_col p{
+    text-align: center;
+}
+
+#menu #middle_col p input{
+    border: 4px solid gray;
+    border-radius:9px;
+    font: bold x-large arial; 
+    text-align: center;
+    width:95%;
+}
+
+#menu #middle_col div{
+    text-align: center;
+}
+
+#menu #middle_col .button {
+  padding:5px;
+  background-color: #dcdcdc;
+  border: 2px solid #666;
+  width: 100px;
+  color:#000;
+  text-decoration:none;
+  border-radius:6px;
+  font: normal medium arial;
+}
+
+#lose_objects ul li{
+    list-style:none;
+    display:inline-block;
+    margin:10px 20px;;
+}
+
+#popup{
+    margin: 10px;
+    padding: 20px;
+    border-radius:15px;
+    border: 3px solid #097434;
+    background: #CCCCCC;
+    width: 500px;
+    height: 300px;
+    font-family: "trebuchet ms";
+}
+
+#popup .finalscore{
+    color: #BF0404;
+    font: bold xx-large "trebuchet ms" ;
+}
+
+#fsjobs {
+    background: url("../images/fsjobs_more.jpg") no-repeat scroll 0 100% transparent;
+    float: left;
+    font-size: 12px;
+    line-height: 16px;
+    margin-bottom: 25px;
+    margin-left: 10px;
+    padding-bottom: 53px;
+    position: relative;
+    width: 410px;
+    z-index:9999;
+}
+#fsjobs_header {
+    background: url("../images/fsjobs_header.jpg") no-repeat scroll 0 0 transparent;
+    display: block;
+    float: left;
+    height: 107px;
+    text-indent: -9999px;
+    width: 410px;
+}
+#fsjobs_body {
+    background: url("../images/fsjobs_body.jpg") no-repeat scroll 0 0 transparent;
+    float: left;
+    width: 410px;
+}
+#fsjobs_body p {
+    color: #D5D5D5;
+    display: block;
+    float: left;
+    font-family: Helvetica,Arial;
+    font-size: 14px;
+    font-weight: bold;
+    height: 42px;
+    margin: 0 14px;
+    padding: 16px 37px 0 25px;
+    text-decoration: none;
+    text-shadow: 0 2px 1px #000000;
+    width: 320px;
+}
+
+#fsjobs_body .finalscore{
+    color: #BF0404;
+    font: bold xx-large "trebuchet ms" ;
+}
+
+/*Objects*/
+
+#car{
+    background: url(../images/character1.png) no-repeat;
+    display: block;
+    width: 238px;
+    height: 150px;
+    position: absolute;
+    top:320px;
+    text-align: center;
+}
+
+#phrase{
+    background-color: white;
+    padding: 5px;
+    vertical-align: middle;
+    line-height: 200px;
+}
+
+.bomb{
+    background: url(../images/bomb.png) no-repeat;
+    display: block;
+    width: 59px;
+    height: 63px;
+   
+}
+
+#police_checkpoint{
+    background: url(../images/police_checkpoint.png) no-repeat;
+    display: block;
+    width: 187px;
+    height: 254px;
+    position: absolute;
+    top: 326px;
+    left:813px;
+}
+
+#jona{
+    background-color: white;
+    padding: 3px;
+    font-size:10px;
+    vertical-align: middle;
+    border: 2px solid black;
+    position: absolute;
+    top: 130px;
+    left:150px;
+    border-radius:8px 8px 8px 0px;
+}
+
+/* modal*/
+#basic-modal-content {display:none;}
+
+/* Overlay */
+#simplemodal-overlay {background-color:#000; cursor:wait;}
+
+/* Container */
+#simplemodal-container {height:360px; width:600px; color:#bbb; background-color:#333; border:4px solid #444; padding:12px;}
+#simplemodal-container .simplemodal-data {padding:8px;}
+#simplemodal-container code {background:#141414; border-left:3px solid #65B43D; color:#bbb; display:block; font-size:12px; margin-bottom:12px; padding:4px 6px 6px;}
+#simplemodal-container a {color:#ddd;}
+#simplemodal-container a.modalCloseImg {background:url(../images/x.png) no-repeat; width:25px; height:29px; display:inline; z-index:3200; position:absolute; top:-15px; right:-16px; cursor:pointer;}
+#simplemodal-container h3 {color:#84b8d9;}
